@@ -1,10 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: rgb(78, 81, 117);
 }
 
 .carousel {
     width: 960px;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .carousel-inner {
@@ -12,6 +17,7 @@ body {
     overflow: hidden;
     width: 960px;
     height: 800px;
+    margin-bottom: 10px;
 }
 
 .carousel-inner img {
@@ -22,4 +28,43 @@ body {
 
 .carousel-description {
     color: #fff;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-wrapper {
+    display: flex;
+}
+
+.btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(127, 182, 255);
+    cursor: pointer;
+    transition-duration: 500ms;
+    border: 8px solid rgb(78, 81, 117);
+}
+
+.btn:hover {
+    background-color: #fff;
+}
+
+.btn.active {
+    width: 16px;
+    height: 16px;
+    margin-top: 7px;
+    border: 3px solid rgb(127, 182, 255);
+    background-color: rgb(78, 81, 117);
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+.btn.active:hover {
+    border: 3px solid #fff;
+    background-color: rgb(78, 81, 117);
 }
