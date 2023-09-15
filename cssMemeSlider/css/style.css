@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(78, 81, 117);
+}
+
+.carousel {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.carousel-inner {
+    display: flex;
+    overflow: hidden;
+    width: 960px;
+    height: 800px;
+}
+
+.carousel-inner img {
+    min-width: 960px;
+    min-height: 800px;
+    
+}
+
+.carousel-description {
+    color: #fff;
+}
