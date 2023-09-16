@@ -10,14 +10,40 @@ body {
 .carousel {
     width: 960px;
     margin: 10px auto;
+    overflow: hidden;
 }
 
 .carousel-inner {
     display: flex;
-    overflow: hidden;
     width: 960px;
     height: 800px;
     margin-bottom: 10px;
+    position: relative;
+    transition-duration: 1s;
+}
+
+.slide_1 {
+    right: 0;
+}
+
+.slide_2 {
+    right: 960px;
+}
+
+.slide_3 {
+    right: 1920px;
+}
+
+.slide_4 {
+    right: 2880px;
+}
+
+.slide_5 {
+    right: 3840px;
+}
+
+.slide_6 {
+    right: 4800px;
 }
 
 .carousel-inner img {
@@ -28,6 +54,14 @@ body {
 
 .carousel-description {
     color: #fff;
+    font-size: 24px;
+    line-height: 32px;
+    transition-duration: 300ms;
+    opacity: 0;
+}
+
+.carousel-description.show {
+    opacity: 1;
 }
 
 .wrapper {
