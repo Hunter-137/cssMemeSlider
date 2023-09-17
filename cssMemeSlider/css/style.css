@@ -9,13 +9,12 @@ body {
 
 .carousel {
     width: 960px;
-    margin: 10px auto;
+    margin: 10px auto 0;
     overflow: hidden;
 }
 
 .carousel-inner {
     display: flex;
-    width: 960px;
     height: 800px;
     margin-bottom: 10px;
     position: relative;
@@ -47,9 +46,9 @@ body {
 }
 
 .carousel-inner img {
-    min-width: 960px;
-    min-height: 800px;
-    
+    min-width: 940px;
+    min-height: auto;
+    margin: 0 10px;
 }
 
 .carousel-description {
@@ -66,6 +65,7 @@ body {
 
 .wrapper {
     display: flex;
+    padding: 0 10px 10px;
     justify-content: space-between;
     align-items: center;
 }
@@ -101,4 +101,139 @@ body {
 .btn.active:hover {
     border: 3px solid #fff;
     background-color: rgb(78, 81, 117);
+}
+
+@media (max-width: 840px) {
+    .carousel {
+        width: 768px;
+        margin: 10px auto 0;
+        overflow: hidden;
+    }
+    
+    .carousel-inner {
+        display: flex;
+        height: 500px;
+        margin-bottom: 10px;
+        position: relative;
+        transition-duration: 1s;
+    }
+    
+    .slide_1 {
+        right: 0;
+    }
+    
+    .slide_2 {
+        right: 768px;
+    }
+    
+    .slide_3 {
+        right: 1536px;
+    }
+    
+    .slide_4 {
+        right: 2304px;
+    }
+    
+    .slide_5 {
+        right: 3072px;
+    }
+    
+    .slide_6 {
+        right: 3840px;
+    }
+    
+    .carousel-inner img {
+        min-width: 748px;
+        min-height: auto;
+        margin: 0 10px;
+    }
+    
+    .carousel-description {
+        color: #fff;
+        font-size: 24px;
+        line-height: 32px;
+        transition-duration: 300ms;
+        opacity: 0;
+    }
+    
+    .carousel-description.show {
+        opacity: 1;
+    }
+    
+    .wrapper {
+        display: flex;
+        padding: 0 10px 10px;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .carousel {
+        width: 320px;
+        margin: 5px auto 0;
+        overflow: hidden;
+    }
+    
+    .carousel-inner {
+        display: flex;
+        height: 420px;
+        margin-bottom: 10px;
+        position: relative;
+        transition-duration: 1s;
+    }
+    
+    .slide_1 {
+        right: 0;
+    }
+    
+    .slide_2 {
+        right: 320px;
+    }
+    
+    .slide_3 {
+        right: 640px;
+    }
+    
+    .slide_4 {
+        right: 960px;
+    }
+    
+    .slide_5 {
+        right: 1280px;
+    }
+    
+    .slide_6 {
+        right: 1600px;
+    }
+    
+    .carousel-inner img {
+        min-width: 300px;
+        min-height: auto;
+        margin: 0 10px;
+    }
+    
+    .carousel-description {
+        color: #fff;
+        font-size: 24px;
+        line-height: 32px;
+        transition-duration: 300ms;
+        opacity: 0;
+        text-align: center;
+    }
+    
+    .carousel-description.show {
+        opacity: 1;
+    }
+    
+    .wrapper {
+        display: flex;
+        padding: 0 10px 10px;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
 }
