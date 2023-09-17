@@ -82,6 +82,7 @@ body {
     cursor: pointer;
     transition-duration: 500ms;
     border: 8px solid rgb(78, 81, 117);
+    -webkit-tap-highlight-color: transparent; /* убирает синий фон при клике с телефона */
 }
 
 .btn:hover {
