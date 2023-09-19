@@ -1,0 +1,519 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    list-style-type: none;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(78, 81, 117);
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.content {
+    width: 80vw;
+    height: 90vh;
+    margin: auto
+}
+
+.carousel {
+    display: flex;
+    width: 80vw;
+    height: 80vh;
+    overflow: hidden;
+    transition: transform 0.5s;
+}
+
+.item-wrapp {
+    transition-duration: 1s;
+}
+
+.item {
+    width: 80vw;
+    height: 80vh;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2vh;
+}
+
+.text-wrapper {
+    width: 60vw;
+    overflow: hidden;
+    color: #FFF;
+    font-size: 1.5rem;
+}
+
+.slider_radio-btn {
+    display: none;
+}
+
+.buttons-wrapper {
+    display: flex;
+}
+
+.circle-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: rgb(127, 182, 255);
+    cursor: pointer;
+    transition-duration: 500ms;
+    border: 8px solid rgb(78, 81, 117);
+    -webkit-tap-highlight-color: transparent; /* убирает синий фон при клике с телефона */
+}
+
+.circle-btn:hover {
+    background-color: #fff;
+}
+
+/* 
+    работает следующим образом:
+    нахожу инпут с атрибутом checked, затем "~" работает как вложенный список
+    у меня шёл инпут в контенте, внутри контента я нашел блок обёртки,
+    внутри обёртки я нашел обёртку по кнопкам, внутри которой были label с привязкой к инпуту
+    внутри label которых я обращаюсь к нужному мне диву самой стилизованной кнопки
+*/
+
+#slider_1:checked ~ .wrapper .buttons-wrapper label[for="slider_1"] .circle-btn,
+#slider_2:checked ~ .wrapper .buttons-wrapper label[for="slider_2"] .circle-btn,
+#slider_3:checked ~ .wrapper .buttons-wrapper label[for="slider_3"] .circle-btn,
+#slider_4:checked ~ .wrapper .buttons-wrapper label[for="slider_4"] .circle-btn,
+#slider_5:checked ~ .wrapper .buttons-wrapper label[for="slider_5"] .circle-btn,
+#slider_6:checked ~ .wrapper .buttons-wrapper label[for="slider_6"] .circle-btn {
+    width: 2rem;
+    height: 2rem;
+    border: 0.4rem solid rgb(127, 182, 255);
+    background-color: rgb(78, 81, 117);;
+    margin-top: 4px;
+}
+
+/* здесь тоже самое, только для наведения (див кнопки:hover) */
+
+#slider_1:checked ~ .wrapper .buttons-wrapper label[for="slider_1"] .circle-btn:hover,
+#slider_2:checked ~ .wrapper .buttons-wrapper label[for="slider_2"] .circle-btn:hover,
+#slider_3:checked ~ .wrapper .buttons-wrapper label[for="slider_3"] .circle-btn:hover,
+#slider_4:checked ~ .wrapper .buttons-wrapper label[for="slider_4"] .circle-btn:hover,
+#slider_5:checked ~ .wrapper .buttons-wrapper label[for="slider_5"] .circle-btn:hover,
+#slider_6:checked ~ .wrapper .buttons-wrapper label[for="slider_6"] .circle-btn:hover {
+    border: 0.4rem solid #FFF;
+}
+
+/* тут для слайда картинок */
+.carousel-item-1,
+.carousel-item-2,
+.carousel-item-3,
+.carousel-item-4,
+.carousel-item-5,
+.carousel-item-6 {
+    opacity: 0;
+}
+
+#slider_1:checked ~ .carousel .carousel-item-1 {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+#slider_2:checked ~ .carousel .carousel-item-2 {
+    transform: translateX(-100%);
+    opacity: 1;
+}
+
+#slider_3:checked ~ .carousel .carousel-item-3 {
+    transform: translateX(-200%);
+    opacity: 1;
+}
+
+#slider_4:checked ~ .carousel .carousel-item-4 {
+    transform: translateX(-300%);
+    opacity: 1;
+}
+
+#slider_5:checked ~ .carousel .carousel-item-5 {
+    transform: translateX(-400%);
+    opacity: 1;
+}
+
+#slider_6:checked ~ .carousel .carousel-item-6 {
+    transform: translateX(-500%);
+    opacity: 1;
+}
+
+.text-wrapper {
+    display: flex;
+    margin-top: 1vh;
+}
+
+/* для текста */
+
+.text-item-1-wrapp,
+.text-item-2-wrapp,
+.text-item-3-wrapp,
+.text-item-4-wrapp,
+.text-item-5-wrapp,
+.text-item-6-wrapp {
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    opacity: 0;
+    height: 0; /* так как я не знал как собрать текст также, как карусель, я убрал высоту */
+    width: 0; /* и ширину контейнера с текстом, тем самым освободив места для адекватного просмотра*/
+}
+
+#slider_1:checked ~ .text-wrapper .text-item-1-wrapp {
+    opacity: 1;
+    height: auto; /* и затем вернул высоту и ширину на место */
+    width: auto;
+}
+#slider_2:checked ~ .text-wrapper .text-item-2-wrapp {
+    opacity: 1;
+    height: auto;
+    width: auto;
+}
+#slider_3:checked ~ .text-wrapper .text-item-3-wrapp {
+    opacity: 1;
+    height: auto;
+    width: auto;
+}
+#slider_4:checked ~ .text-wrapper .text-item-4-wrapp {
+    opacity: 1;
+    height: auto;
+    width: auto;
+}
+#slider_5:checked ~ .text-wrapper .text-item-5-wrapp {
+    opacity: 1;
+    height: auto;
+    width: auto;
+}
+#slider_6:checked ~ .text-wrapper .text-item-6-wrapp {
+    opacity: 1;
+    height: auto;
+    width: auto;
+}
+
+@media(max-width:820px) {
+    .wrapper {
+        justify-content: center;
+    }
+
+    .text-wrapper {
+        font-size: 2rem;
+        justify-content: center;
+        text-align: center;
+        width: auto;
+    }
+}
+
+@media(max-width:600px) {
+    .text-wrapper {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .slider_radio-btn[id="slider_1"]:checked + label[for="slider_1"] .circle-btn,
+.slider_radio-btn[id="slider_2"]:checked + label[for="slider_2"] .circle-btn,
+.slider_radio-btn[id="slider_3"]:checked + label[for="slider_3"] .circle-btn,
+.slider_radio-btn[id="slider_4"]:checked + label[for="slider_4"] .circle-btn,
+.slider_radio-btn[id="slider_5"]:checked + label[for="slider_5"] .circle-btn,
+.slider_radio-btn[id="slider_6"]:checked + label[for="slider_6"] .circle-btn {
+    background-color: black;
+} */
+
+
+/* .slider_radio-btn[id="slider_1"]:checked ~ .buttons-wrapper label[for="slider_1"] .circle-btn,
+.slider_radio-btn[id="slider_2"]:checked ~ .buttons-wrapper label[for="slider_2"] .circle-btn,
+.slider_radio-btn[id="slider_3"]:checked ~ .buttons-wrapper label[for="slider_3"] .circle-btn,
+.slider_radio-btn[id="slider_4"]:checked ~ .buttons-wrapper label[for="slider_4"] .circle-btn,
+.slider_radio-btn[id="slider_5"]:checked ~ .buttons-wrapper label[for="slider_5"] .circle-btn,
+.slider_radio-btn[id="slider_6"]:checked ~ .buttons-wrapper label[for="slider_6"] .circle-btn {
+    background-color: black;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+/* body {
+    background-color: rgb(78, 81, 117);
+}
+
+.carousel {
+    width: 960px;
+    margin: 10px auto 0;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    height: 800px;
+    margin-bottom: 10px;
+    position: relative;
+    transition-duration: 1s;
+}
+
+.slide_1 {
+    right: 0;
+}
+
+.slide_2 {
+    right: 960px;
+}
+
+.slide_3 {
+    right: 1920px;
+}
+
+.slide_4 {
+    right: 2880px;
+}
+
+.slide_5 {
+    right: 3840px;
+}
+
+.slide_6 {
+    right: 4800px;
+}
+
+.carousel-inner img {
+    min-width: 940px;
+    min-height: auto;
+    margin: 0 10px;
+}
+
+.carousel-description {
+    color: #fff;
+    font-size: 24px;
+    line-height: 32px;
+    transition-duration: 300ms;
+    opacity: 0;
+}
+
+.carousel-description.show {
+    opacity: 1;
+}
+
+.wrapper {
+    display: flex;
+    padding: 0 10px 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-wrapper {
+    display: flex;
+}
+
+.btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(127, 182, 255);
+    cursor: pointer;
+    transition-duration: 500ms;
+    border: 8px solid rgb(78, 81, 117); 
+    -webkit-tap-highlight-color: transparent; убирает синий фон при клике с телефона
+}
+
+.btn:hover {
+    background-color: #fff;
+}
+
+.btn.active {
+    width: 16px;
+    height: 16px;
+    margin-top: 7px;
+    border: 3px solid rgb(127, 182, 255);
+    background-color: rgb(78, 81, 117);
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+.btn.active:hover {
+    border: 3px solid #fff;
+    background-color: rgb(78, 81, 117);
+}
+
+.radio-btn {
+    display: none;
+    list-style: none;
+}
+
+@media (max-width: 840px) {
+    .carousel {
+        width: 768px;
+        margin: 10px auto 0;
+        overflow: hidden;
+    }
+    
+    .carousel-inner {
+        display: flex;
+        height: 500px;
+        margin-bottom: 10px;
+        position: relative;
+        transition-duration: 1s;
+    }
+    
+    .slide_1 {
+        right: 0;
+    }
+    
+    .slide_2 {
+        right: 768px;
+    }
+    
+    .slide_3 {
+        right: 1536px;
+    }
+    
+    .slide_4 {
+        right: 2304px;
+    }
+    
+    .slide_5 {
+        right: 3072px;
+    }
+    
+    .slide_6 {
+        right: 3840px;
+    }
+    
+    .carousel-inner img {
+        min-width: 748px;
+        min-height: auto;
+        margin: 0 10px;
+    }
+    
+    .carousel-description {
+        color: #fff;
+        font-size: 24px;
+        line-height: 32px;
+        transition-duration: 300ms;
+        opacity: 0;
+    }
+    
+    .carousel-description.show {
+        opacity: 1;
+    }
+    
+    .wrapper {
+        display: flex;
+        padding: 0 10px 10px;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .carousel {
+        width: 320px;
+        margin: 5px auto 0;
+        overflow: hidden;
+    }
+    
+    .carousel-inner {
+        display: flex;
+        height: 420px;
+        margin-bottom: 10px;
+        position: relative;
+        transition-duration: 1s;
+    }
+    
+    .slide_1 {
+        right: 0;
+    }
+    
+    .slide_2 {
+        right: 320px;
+    }
+    
+    .slide_3 {
+        right: 640px;
+    }
+    
+    .slide_4 {
+        right: 960px;
+    }
+    
+    .slide_5 {
+        right: 1280px;
+    }
+    
+    .slide_6 {
+        right: 1600px;
+    }
+    
+    .carousel-inner img {
+        min-width: 300px;
+        min-height: auto;
+        margin: 0 10px;
+    }
+    
+    .carousel-description {
+        color: #fff;
+        font-size: 24px;
+        line-height: 32px;
+        transition-duration: 300ms;
+        opacity: 0;
+        text-align: center;
+    }
+    
+    .carousel-description.show {
+        opacity: 1;
+    }
+    
+    .wrapper {
+        display: flex;
+        padding: 0 10px 10px;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+}
+*/
